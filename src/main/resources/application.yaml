@@ -1,0 +1,130 @@
+spring:
+  application:
+    name: Text-To-Sql-demo-using-Spring-AI-and-OpenAI
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/test_db?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: ${DB_USERNAME:test}
+    password: ${DB_PASSWORD:test}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      connection-timeout: 30000
+
+    jpa:
+      hibernate:
+        ddl-auto: update
+      database-platform: org.hibernate.dialect.MySQLDialect
+      show-sql: true
+
+  flyway:
+    enabled: true
+
+  mvc:
+    static-path-pattern: /swagger-ui/**
+
+  web:
+    resources:
+      static-locations: classpath:/META-INF/resources/,classpath:/META-INF/resources/webjars/
+
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY}
+      chat:
+        options:
+          model: gpt-4 # or gpt-3.5-turbo
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+
+springdoc:
+  api-docs:
+    path: /api-docs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#spring:
+#  application:
+#    name: Text-To-Sql-demo-using-Spring-AI-and-Anthropic
+#
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/test_db?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+#    username: ${DB_USERNAME:test}
+#    password: ${DB_PASSWORD:test}
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    hikari:
+#      connection-timeout: 30000
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    database-platform: org.hibernate.dialect.MySQLDialect
+#    show-sql: true
+#
+#  flyway:
+#    enabled: true
+#
+#  mvc:
+#    static-path-pattern: /swagger-ui/**
+#
+#  web:
+#    resources:
+#      static-locations: classpath:/META-INF/resources/,classpath:/META-INF/resources/webjars/
+#
+#  ai:
+#    anthropic:
+#      api-key: ${ANTHROPIC_API_KEY}
+#      chat:
+#        options:
+#          model: claude-4-20241120
+#
+#logging:
+#  level:
+#    org:
+#      hibernate:
+#        SQL: DEBUG
+#
+#springdoc:
+#  api-docs:
+#    path: /api-docs
